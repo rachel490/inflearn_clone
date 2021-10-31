@@ -28,3 +28,46 @@
         ```
 
 #### [10.31]
+- Global Style 적용 + reset.css :
+    - GlobalStyle : styled-component의 createGlobalStyle 이용해서 생성
+    - Reset : styled-reset 다운 받아서 사용
+    
+    ```jsx
+    import { reset } from 'styled-reset';
+    import { createGlobalStyle } from 'styled-components';
+    
+    const GlobalStyle = createGlobalStyle`
+        ${reset};
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+    
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+    `
+    
+    export default GlobalStyle
+    ```
+    
+    ++ 반드시 Reset이 아닌 reset으로 써야함. 아니면 다음과 같은 에러메세지를 마주하게됨.
+    
+    ![스크린샷 2021-10-31 오후 11.21.46.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d90a2271-837c-4db7-aa2b-2cf624ea21c1/스크린샷_2021-10-31_오후_11.21.46.png)
+    
+
+- Link의 Styled Component version
+    
+    ⇒ Link도 a 태그와 같이 디폴트 스타일이 존재. reset.css나 GlobalStyle로 설정할 수 없으므로 styled component를 별도로 만듦 : StLink
+    
+    ```jsx
+    import styled from 'styled-components'
+    import {Link} from 'react-router-dom'
+    
+    export const StLink = styled(Link)`
+        color: currentColor;
+        text-decoration: none;
+        cursor: pointer;
+    
+        &:focus, &:hover, &:visited, &:link, &:active {
+            text-decoration: none;
+        }
+    `
+    ```
