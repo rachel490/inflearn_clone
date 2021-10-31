@@ -1,43 +1,21 @@
 import React from 'react';
-import { ReactComponent as Logo } from '../../../logo.svg';
-
+import Logo from '../Logo/Logo';
+import Nav from '../Nav/Nav';
 import {
   HeaderWrap,
   HeaderContainer,
-  LogoContainer,
-  LogoWrap,
-  NavbarContainer,
-  NavbarLeftContainer,
-  NavMenuContainer,
-  NavbarRightContainer,
-  SearchbarConatiner,
-  NavbarBtnsConatiner
+  HeaderButton
+
 } from './Header.style';
 
 function Header() {
   return (
     <HeaderWrap>
       <HeaderContainer>
-        <LogoContainer>
-          <LogoWrap to='/'>
-            <Logo />
-          </LogoWrap>
-        </LogoContainer>
-        <NavbarContainer>
-          <NavbarLeftContainer>
-            <NavMenuContainer>
-
-            </NavMenuContainer>
-          </NavbarLeftContainer>
-          <NavbarRightContainer>
-              <SearchbarConatiner>
-
-              </SearchbarConatiner>
-              <NavbarBtnsConatiner>
-
-              </NavbarBtnsConatiner>
-          </NavbarRightContainer>
-        </NavbarContainer>
+        <Logo />
+        <Nav />
+        <HeaderButton>로그인</HeaderButton>
+        <HeaderButton bgColor="#ff7867">회원가입</HeaderButton>
       </HeaderContainer>
     </HeaderWrap>
   );

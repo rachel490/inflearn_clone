@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
+import { Button } from '../style/style'
 
 export const HeaderWrap = styled.div`
     height: 64px;
@@ -11,25 +11,16 @@ export const HeaderContainer = styled.header`
     max-width: 1200px;
     margin: 0 auto;
     height: 100%;
-    background-color: black;
     display: flex;
 `
 
-export const LogoContainer = styled.div`
-   
-    background-color:yellow;
-`
 
-export const LogoWrap = styled(Link)`
-    display: inline-flex;
-    align-items: center;
-    height: 100%;
-
-    #icon_brand_logo {
-        fill: #1dc078;
-    }
+export const HeaderButton = styled(Button)`
+    border: 1px solid #dbdbdb;
+    background-color: ${props => props.bgColor}
 
 `
+
 
 export const NavbarContainer = styled.header`
 

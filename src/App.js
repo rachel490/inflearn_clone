@@ -1,11 +1,11 @@
 import './App.css';
+import GlobalStyle from './components/shared/style/GlobalStyle';
 import RootRoute from './routes';
-import { Reset } from 'styled-reset';
 
 function App() {
   return (
     <>
-      <Reset />
+      <GlobalStyle />
       <RootRoute />
     </>
   );
