@@ -88,7 +88,7 @@ const FooterLinkData = [
             },
             {
                 url: '/community/questions',
-                name: '질문 &amp; 답변'
+                name: '질문 & 답변'
             },
             {
                 url: '/community/reviews',
