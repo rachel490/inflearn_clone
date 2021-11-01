@@ -14,6 +14,7 @@ export const StLink = styled(Link)`
     text-decoration: none;
     cursor: pointer;
 
+
     &:focus, &:hover, &:visited, &:link, &:active {
         text-decoration: none;
     }
