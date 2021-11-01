@@ -71,3 +71,30 @@
         }
     `
     ```
+
+
+### [11.1]
+
+### Trouble Shooting
+
+- React에서 Anchor 태그 사용할때 : target = '_blank' 설정시 오류
+    - 에러메세지
+        
+        ![스크린샷 2021-11-01 오후 11.31.35.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/03963d8e-7b77-4a0c-bc82-35f031c683b0/스크린샷_2021-11-01_오후_11.31.35.png)
+        
+    - 해결방법
+        
+        ⇒ `rel='noopener noreferrer'` 사용
+        
+        ```jsx
+        <a
+          href='https://post.naver.com/inflearn'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+        ```
+        
+
+### TID
+
+- 서버 개발자분들과 1주차에 필요한 API의 API 명세서 정리
