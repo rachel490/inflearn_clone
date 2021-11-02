@@ -17,8 +17,6 @@ export const HeaderContainer = styled.header`
 
 export const HeaderButton = styled(Button)`
   border: 1px solid #dbdbdb;
-  background-color: ${(props) => props.bgColor};
-  color: ${(props) => props.fontColor};
   padding: 0.5rem;
   font-size: 1.05rem;
 `;
