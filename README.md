@@ -75,8 +75,6 @@
 
 ### [11.1]
 
-### Trouble Shooting
-
 - React에서 Anchor 태그 사용할때 : target = '_blank' 설정시 오류
     - 에러메세지
         
@@ -95,6 +93,16 @@
         ```
         
 
-### TID
+- TID
+    - 서버 개발자분들과 1주차에 필요한 API의 API 명세서 정리
 
-- 서버 개발자분들과 1주차에 필요한 API의 API 명세서 정리
+
+
+### [11.2]
+
+- TID
+    - kakao social login 구현
+    - google social login 구현
+    - sign in modal UI 구현
+    - 서버 개발자분들과 전체 API 명세서 정리 (-ing)
+
