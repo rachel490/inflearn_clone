@@ -23,3 +23,35 @@ export const StLink = styled(Link)`
     text-decoration: none;
   }
 `;
+
+export const ModalWrap = styled.div`
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 80;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+`;
+
+export const ModalOverlay = styled.div`
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  background: rgba(11, 19, 30, 0.37);
+  width: 100vw;
+  height: 100vh;
+`;
+
+export const Modal = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  margin: auto;
+ 
+`;

@@ -13,11 +13,15 @@ import SearchBar from './SearchBar';
 import SignInModal from '../Modal/SignInModal';
 
 function Header() {
-  const [signInModalOn, setSignInModalOn] = useState(false);
+  const [signInModal, setSignInModal] = useState();
+
+  const toggleSignInModal = () => {
+    setSignInModal(!signInModal);
+  }
 
   return (
     <>
-      <SignInModal show={signInModalOn} onHide={() => setSignInModalOn(false)}/>
+      {signInModal &&  <SignInModal toggleSignInModal={toggleSignInModal}/> }
       <HeaderWrap>
         <HeaderContainer>
           <Logo />
@@ -27,7 +31,7 @@ function Header() {
             <StLink>지식공유참여</StLink>
           </LinkWrap>
           <ButtonWrap>
-            <HeaderButton onClick={() => setSignInModalOn(true)}>로그인</HeaderButton>
+            <HeaderButton onClick={toggleSignInModal}>로그인</HeaderButton>
           </ButtonWrap>
           <ButtonWrap>
             <HeaderButton bgColor='#ff7867' fontColor='#fff'>
