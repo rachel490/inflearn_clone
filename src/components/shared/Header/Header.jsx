@@ -15,7 +15,8 @@ import SignInModal from '../Modal/SignInModal';
 function Header() {
   const [signInModal, setSignInModal] = useState();
 
-  const toggleSignInModal = () => {
+  const toggleSignInModal = (e) => {
+    console.log(e)
     setSignInModal(!signInModal);
   }
 

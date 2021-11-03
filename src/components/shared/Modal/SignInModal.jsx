@@ -8,7 +8,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 function SignInModal({ toggleSignInModal }) {
   return (
     <ModalWrap>
-      <ModalOverlay onClick={toggleSignInModal}>
+      <ModalOverlay onClick={toggleSignInModal} id='hi'>
         <ModalContent>
           <AiOutlineClose />
           <LogoWrap>
