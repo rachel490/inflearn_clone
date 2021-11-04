@@ -4,36 +4,31 @@ import { Button } from '../style/style';
 import axios from 'axios';
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [pw, setPw] = useState('');
+  const [Email, setEmail] = useState('');
+  const [EmailConfirm, setEmailConfirm] = useState('');
+  const [Password, setPassword] = useState('');
+  const [PasswordConfirm, setPasswordConfirm] = useState('');
 
   const handleEmail = (e) => {
-    console.log(e.target.value);
     setEmail(e.target.value);
   };
-  const handlePw = (e) => {
-    console.log(e.target.value);
-    setPw(e.target.value);
+
+  const handleEmailConfirm = (e) => {
+    setEmailConfirm(e.target.value);
   };
 
-  const handleSubmit = () => {
-    axios({
-      method: "post",
-      url: "https://dev.jkrising.shop/inflearn/users/signup",
-      data: {
-        email: email,
-        password: pw
-      },
-    })
-      .then((res) => {
-        console.log('success')
-        console.log(res)
-        window.alert(res);
-      })
-      .catch((error) => {
-        console.log('error')
-        console.log(error);
-      });
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handlePasswordConfirm = (e) => {
+    setPasswordConfirm(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    console.log(Email, EmailConfirm, Password, PasswordConfirm);
   };
 
   return (
@@ -44,13 +39,14 @@ const SignUp = () => {
           <span>나의 온라인 사수, 인프런</span>
         </aside>
       </header>
-      <main>
+      <form onSubmit={handleSubmit}>
         <div>
           <label for='email'>이메일</label>
           <Input
             id='email'
-            type='text'
+            type='email'
             placeholder='example@inflearn.com'
+            value={Email}
             onChange={handleEmail}
           />
           <span></span>
@@ -59,9 +55,10 @@ const SignUp = () => {
           <label for='emailConfirm'>이메일 확인</label>
           <Input
             id='emailConfirm'
-            type='text'
+            type='email'
             placeholder='example@inflearn.com'
-            onChange={handleEmail}
+            value={EmailConfirm}
+            onChange={handleEmailConfirm}
           />
           <span></span>
         </div>
@@ -71,7 +68,8 @@ const SignUp = () => {
             type='password'
             id='password'
             placeholder='******'
-            onChange={handlePw}
+            value={Password}
+            onChange={handlePassword}
           />
           <span></span>
         </div>
@@ -81,14 +79,15 @@ const SignUp = () => {
             type='password'
             id='passwordConfirm'
             placeholder='******'
-            onChange={handlePw}
+            value={PasswordConfirm}
+            onChange={handlePasswordConfirm}
           />
           <span></span>
         </div>
-        <SignUpButton bgColor='#00c471' onClick={handleSubmit}>
+        <SignUpButton bgColor='#00c471' onClick={handleSubmit} type='submit'>
           가입하기
         </SignUpButton>
-      </main>
+      </form>
     </div>
   );
 };
