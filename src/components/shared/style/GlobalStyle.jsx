@@ -8,6 +8,8 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         font-family: 'Noto Sans KR', sans-serif;
+        font-size: 1rem;
+        box-sizing: border-box;
     }
 
     a { 
