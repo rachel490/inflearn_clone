@@ -5,8 +5,6 @@ import StarRate from '../StarRate/StarRate'
 const LectureCard = () => {
     return (
         <Container>
-            <h1> Course </h1>
-            <h3> Dear Friend</h3>
             <FrontContainer>
                 <ImgSection>
                     <img src="https://cdn.inflearn.com/public/courses/324145/course_cover/f4b28e4f-6635-4e57-95be-5f4ac7b1ea49/I_O_python_1.png" alt="thumbnail" />

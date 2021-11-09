@@ -5,7 +5,10 @@ import LectureDetailHeader from '../components/LectureDetail/LectureDetailHeader
 import LectureDetailInstructor from '../components/LectureDetail/LectureDetailInstructor';
 import LectureDetailReview from '../components/LectureDetail/LectureDetailReview';
 import LectureDetailSidebar from '../components/LectureDetail/LectureDetailSidebar';
+import LectureRecommendation from '../components/LectureDetail/LectureRecommendation';
+import ApplyFooter from '../components/shared/ApplyFooter/ApplyFooter';
 import Header from '../components/shared/Header/Header';
+import Footer from '../components/shared/Footer/Footer';
 
 const LectureDetailDate = () => {
     return (
@@ -50,6 +53,9 @@ const LectureDetailPage = () => {
             <LectureDetailCurriculum />
             <LectureDetailDate />
             <LectureDetailReview />
+            <LectureRecommendation />
+            <ApplyFooter />
+            <Footer />
 
         </div>
     )

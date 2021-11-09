@@ -4,6 +4,7 @@ import SignupPage from '../pages/SignupPage';
 import LectureDetailPage from '../pages/LectureDetailPage';
 import ProfilePage from '../pages/ProfilePage';
 import LectureListPage from '../pages/LectureListPage';
+import MentoringPage from '../pages/MentoringPage';
 
 
 function RootRoute() {
@@ -14,6 +15,7 @@ function RootRoute() {
                 <Route path='/course/' component={LectureDetailPage} />
                 <Route path='/settings/account' component={ProfilePage} />
                 <Route path='/courses' component={LectureListPage} />
+                <Route path='/mentors' component={MentoringPage} />
             </Switch>
         </Router>
     )
