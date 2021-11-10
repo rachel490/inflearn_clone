@@ -225,9 +225,7 @@ const Item = styled.div`
 `;
 
 const Title = styled.div`
-  border-bottom: 1px solid #e4e4e4;
-  border-right: 1px solid #e4e4e4;
-  border-left: 1px solid #e4e4e4;
+  border: 1px solid #e4e4e4;
   color: #595959;
   background: #fafafa;
   font-weight: 500;
@@ -280,12 +278,15 @@ const Body = styled.div`
     border-left: 1px solid #e4e4e4;
     padding: 0.5rem 0.5rem 0.5rem 1rem;
     font-size: 0.925rem;
+    box-sizing: border-box;
+    line-height: 1.5;
   }
 `;
 
 // Filter Component - styled
 
 const FilterWrap = styled.div`
+  border-top: 1px solid #e4e4e4;
   margin-top: 1rem;
   padding: 0 1rem 1rem;
 `;
@@ -308,7 +309,6 @@ const FilterHeader = styled.div`
   padding: 0.85rem;
   border-radius: 0;
   white-space: nowrap;
-  border-top: 1px solid #e4e4e4;
   text-decoration: none;
 `;
 

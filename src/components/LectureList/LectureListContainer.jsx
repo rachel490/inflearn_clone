@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import LectureCard from "../shared/LectureCard/LectureCard";
-import { MdViewModule, MdFormatListBulleted } from "react-icons/md";
+import Axios from "axios";
+
+import {
+  MdViewModule,
+  MdFormatListBulleted,
+  MdMoreHoriz,
+} from "react-icons/md";
+import { IoClose } from "react-icons/io5";
+import axios from "axios";
 
 const SearchBar = () => {
   return (
@@ -59,18 +67,12 @@ const SearchBarContainer = styled.div`
 `;
 
 const SortBar = () => {
-  return <SortBarContainer></SortBarContainer>;
-};
-
-const SortBarContainer = styled.div``;
-
-const TagBar = () => {
   return (
-    <TagBarContainer>
+    <SortBarContainer>
       <CategoryList>
-        <CategoryItem>
+        <Categorylecture>
           <a href="/courses">전체</a>
-        </CategoryItem>
+        </Categorylecture>
       </CategoryList>
       <ViewButtons>
         <ViewButton>
@@ -81,7 +83,7 @@ const TagBar = () => {
         </ViewButton>
       </ViewButtons>
       <Order>
-        <Select id="courses_order_selector" name="order_select">
+        <Select id="courses_order_selector">
           <option value="seq" selected="">
             추천순
           </option>
@@ -91,11 +93,11 @@ const TagBar = () => {
           <option value="famous">학생수순</option>
         </Select>
       </Order>
-    </TagBarContainer>
+    </SortBarContainer>
   );
 };
 
-const TagBarContainer = styled.div`
+const SortBarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -111,7 +113,7 @@ const CategoryList = styled.ul`
   list-style: none;
   align-items: baseline;
 `;
-const CategoryItem = styled.li`
+const Categorylecture = styled.li`
   align-items: center;
   display: flex;
   font-weight: 700;
@@ -155,6 +157,26 @@ const Order = styled.div`
   position: relative;
   vertical-align: top;
   height: 2.25em;
+
+  &::after {
+    right: 1.125em;
+    border: 3px solid #6c6c6c;
+    border-radius: 2px;
+    border-right: 0;
+    border-top: 0;
+    content: " ";
+    display: block;
+    height: 0.625em;
+    margin-top: -0.4375em;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: rotate(-45deg);
+    transform-origin: center;
+    width: 0.625em;
+    z-index: 4;
+    box-sizing: border-box;
+  }
 `;
 
 const Select = styled.select`
@@ -162,14 +184,13 @@ const Select = styled.select`
     border-color: #dbdbdb;
     color: #363636;
     cursor: pointer;
-    display: inline-block;
+    display: block;
     font-size: 1em;
     max-width: 100%;
     outline: none;
     padding: calc(0.375em - 1px) calc(0.625em - 1px);
     padding-right: 2.5em;
     align-items: center;
-    border: 1 px solid transparent;
     border-radius: 4px;
     box-shadow: none;
     height: 2.25em;
@@ -177,47 +198,279 @@ const Select = styled.select`
     line-height: 1.5;
     position: relative;
     vertical-align: top;
+    appearance: none;
+  }
+`;
 
-    &::after {
-      border-color: #6c6c6c;
-      right: 1.125em;
-      border: 3px solid transparent;
-      border-radius: 2px;
-      border-right: 0;
-      border-top: 0;
-      content: " ";
-      display: block;
-      height: 0.625em;
-      margin-top: -0.4375em;
-      pointer-events: none;
-      position: absolute;
-      top: 50%;
-      transform: rotate(-45deg);
-      transform-origin: center;
-      width: 0.625em;
-      z-index: 4;
-    }
+const TagBar = () => {
+  return (
+    <TagBarContainer>
+      <SearchSkillBar>
+        <Box>
+          <input type="text" placeholder="기술검색" />
+        </Box>
+        <Box>
+          <a>
+            <IoClose />
+          </a>
+        </Box>
+      </SearchSkillBar>
+      <SkillButtons>
+        <SkillButton>Python</SkillButton>
+        <SkillButton>데이터 분석</SkillButton>
+        <SkillButton>JavaScript</SkillButton>
+        <SkillButton>MS-Office</SkillButton>
+        <SkillButton>HTML/CSS</SkillButton>
+        <SkillButton>모바일 앱 개발</SkillButton>
+        <SkillButton>Java</SkillButton>
+        <SkillButton>Back-End</SkillButton>
+        <SkillButton>3D 모델링</SkillButton>
+        <SkillButton>정보보안</SkillButton>
+        <SkillButton>게임개발</SkillButton>
+        <SkillButton>Front-End</SkillButton>
+        <SkillButton>웹 개발</SkillButton>
+        <SkillButton>데이터 시각화</SkillButton>
+        <SkillButton>Android</SkillButton>
+        <MoreButton>
+          <MdMoreHoriz fontSize="large" />
+        </MoreButton>
+      </SkillButtons>
+    </TagBarContainer>
+  );
+};
+
+const TagBarContainer = styled.div`
+  box-sizing: border-box;
+  margin-top: 8px;
+  margin-left: 0.75rem;
+  position: relative;
+  margin-bottom: 1rem;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+`;
+const SearchSkillBar = styled.div`
+  display: inline-flex;
+  width: 11rem;
+  margin-bottom: 0.4rem;
+  margin-right: 0.5rem;
+`;
+const Box = styled.div`
+  box-sizing: border-box;
+  clear: both;
+  font-size: 1rem;
+  position: relative;
+  text-align: left;
+
+  input {
+    height: 31px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-radius: 3px;
+    box-shadow: none;
+    background: #f6f6f6;
+    color: #5f5f5f;
+    border: 1px solid transparent;
+    padding: calc(0.375em - 1px) calc(0.625em - 1px);
+    box-sizing: border-box;
+    font-size: 1rem;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  a {
+    height: 31px;
+    border-radius: 4px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    background-color: #1dc078;
+    border-color: transparent;
+    color: #fff;
+    padding: calc(0.375em - 1px) 0.75em;
+    cursor: pointer;
+    display: inline-flex;
+    box-sizing: border-box;
+    align-items: center;
+  }
+`;
+const SkillButtons = styled.div`
+  display: contents;
+  line-height: 1.5;
+  font-size: 1rem;
+  font-weight: 400;
+`;
+const SkillButton = styled.button`
+  cursor: pointer;
+  background: #b8b8b8;
+  color: #fff;
+  border: none;
+  padding: 1px 0.6rem 2px 0.8rem;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  height: 2em;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+  display: inline-flex;
+  white-space: nowrap;
+`;
+const MoreButton = styled.button`
+  padding: 1px 0.6rem;
+  background: #3298dc;
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  height: 2em;
+  justify-content: center;
+  line-height: 1.5;
+  border-radius: 4px;
+  align-items: center;
+  display: inline-flex;
+`;
+
+const Pagination = () => {
+  return (
+    <PaginationWrap>
+      <PaginationContainer>
+        <NextButton>다음 페이지</NextButton>
+        <PageList>
+          <Pagelecture>
+            <a>1</a>
+          </Pagelecture>
+          <Pagelecture>
+            <a>2</a>
+          </Pagelecture>
+          <Pagelecture>
+            <a>3</a>
+          </Pagelecture>
+          <Pagelecture>
+            <a>4</a>
+          </Pagelecture>
+          <Pagelecture>
+            <a>5</a>
+          </Pagelecture>
+          <Pagelecture>
+            <a>6</a>
+          </Pagelecture>
+          <Pagelecture>
+            <a>7</a>
+          </Pagelecture>
+          <Pagelecture>
+            <a>8</a>
+          </Pagelecture>
+          <Pagelecture>
+            <a>9</a>
+          </Pagelecture>
+          <Pagelecture>
+            <a>10</a>
+          </Pagelecture>
+          <Pagelecture>
+            <a>...</a>
+          </Pagelecture>
+          <Pagelecture>
+            <a>68</a>
+          </Pagelecture>
+        </PageList>
+      </PaginationContainer>
+    </PaginationWrap>
+  );
+};
+
+const PaginationWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+  width: 100%;
+  position: relative;
+`;
+const PaginationContainer = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 0.75rem;
+  margin: -0.25rem;
+`;
+const NextButton = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.4em 0.75em;
+  border: none;
+  white-space: nowrap;
+  border: 1px solid #dbdbdb;
+  background-color: transparent;
+  color: #363636;
+  min-width: 2.25em;
+  justify-content: center;
+  margin: 0.25rem;
+  text-align: center;
+  font-size: 1em;
+  border-radius: 4px;
+`;
+const PageList = styled.ul`
+  align-items: center;
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+const Pagelecture = styled.li`
+  margin: 0;
+  padding: 0;
+
+  a {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    border-color: #dbdbdb;
+    color: #363636;
+    min-width: 2.25em;
+    font-size: 1em;
+    margin: 0.25rem;
+    height: 2.25em;
+    box-sizing: border-box;
+    border-radius: 4px;
   }
 `;
 
 const LectureListContainer = () => {
+  const [lectures, setLectures] = useState();
+  const field = window.location.href.split('courses')[1];
+
+  useEffect(() => {
+    const fetchLectures = async () => {
+      const res = await Axios.get(
+        `https://dev.jkrising.shop/inflearn/courses/lectures${field}`
+      );
+      const data = res.data.result;
+      setLectures(data);
+    };
+
+    fetchLectures();
+  }, []);
+
   return (
     <Container>
       <SearchBar />
       <SortBar />
       <TagBar />
       <MainContainer>
-        <LectureCard />
-        <LectureCard />
-        <LectureCard />
-        <LectureCard />
-        <LectureCard />
-        <LectureCard />
-        <LectureCard />
-        <LectureCard />
-        <LectureCard />
-        <LectureCard />
+        {lectures!==undefined && lectures.map((lecture) => {
+            console.log('hi',lecture)
+            return <LectureCard data={lecture} />
+        })}
       </MainContainer>
+      <Pagination />
     </Container>
   );
 };

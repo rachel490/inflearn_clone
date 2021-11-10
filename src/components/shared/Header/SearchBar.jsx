@@ -20,6 +20,7 @@ const SearchBarWrap = styled.div`
     display: flex;
     align-items: center;
     position: relative;
+    box-sizing: border-box;
     
 `
 

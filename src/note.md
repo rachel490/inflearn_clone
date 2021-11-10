@@ -1,56 +1,23 @@
-<div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 12" style="width: 323.667px; margin-right: 6px;">
-    <div class="card course course_card_item" data-productid="326865" fxd-data="{&quot;course_id&quot;:326865,&quot;reg_price&quot;:110000}" data-gtm-vis-recent-on-screen-8964582_476="564" data-gtm-vis-first-on-screen-8964582_476="564" data-gtm-vis-total-visible-time-8964582_476="100" data-gtm-vis-has-fired-8964582_476="1">
-      
-      <a class="course_card_front" href="/course/딥러닝-cnn-완벽-기초">
-        <div class="card-image">
-          
-          <figure class="image is_thumbnail">
-            
-  <img loading="lazy" src="https://cdn.inflearn.com/public/courses/326865/cover/62ef33f6-9205-4cc9-89aa-43dfc6173a8f/326865-eng.png" data-src="https://cdn.inflearn.com/public/courses/326865/cover/62ef33f6-9205-4cc9-89aa-43dfc6173a8f/326865-eng.png" class="swiper-lazy" alt="326865-eng.png">
-  <div class="onload_placeholder"></div>
-  <div class="swiper-lazy-preloader"></div>
-
-          </figure>
-          
-          <span class="course_card_ribbon is-shown-admin student_cnt">608</span>
-        </div>
-        <div class="card-content">
-          <div class="course_title">딥러닝 CNN 완벽 가이드 - Fundamental 편</div>
-          <div class="instructor">권 철민</div>
-          <div class="rating"><div class="rating_star"><div class="star_solid" style="width: 99.44444444444444%"><svg aria-hidden="true" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="16" height="16" data-value="1"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><svg aria-hidden="true" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="16" height="16" data-value="2"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><svg aria-hidden="true" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="16" height="16" data-value="3"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><svg aria-hidden="true" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="16" height="16" data-value="4"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><svg aria-hidden="true" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="16" height="16" data-value="5"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg></div><svg aria-hidden="true" data-prefix="fal" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="16" height="16" data-value="5"><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path></svg><svg aria-hidden="true" data-prefix="fal" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="16" height="16" data-value="4"><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path></svg><svg aria-hidden="true" data-prefix="fal" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="16" height="16" data-value="3"><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path></svg><svg aria-hidden="true" data-prefix="fal" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="16" height="16" data-value="2"><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path></svg><svg aria-hidden="true" data-prefix="fal" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="16" height="16" data-value="1"><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path></svg></div><span class="review_cnt">(36)</span></div>
-          <div class="price">₩110,000</div>
-          <div class="tags">
-            <span class="tag " style="background-color: hsl(321,63%,90%)">+600명</span>
-            <span class="tag is-hidden-student" style="background-color: hsl(155,40%,87%)">독점</span>
-            
-            
-            
-          </div>
-        </div>
-      </a>
-      <div class="course_card_back">
-        <a href="/course/딥러닝-cnn-완벽-기초">
-          <p class="course_title">딥러닝 CNN 완벽 가이드 - Fundamental 편</p>
-          <p class="course_description">딥러닝·CNN 핵심 이론부터 다양한 CNN 모델 구현 방법, 실전 문제를 통한 실무 딥러닝 개발 노하우까지,
-딥러닝 CNN 기술 전문가로 거듭나고 싶다면 이 강의와 함께하세요 :)</p>
-          <div class="back_course_metas">
-            <div class="course_level">
-              <span><svg width="16" aria-hidden="true" data-prefix="fal" data-icon="signal-alt" class="svg-inline--fa fa-signal-alt fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M576 32v448h-32V32h32M416 160v320h-32V160h32M256 288v192h-32V288h32M96 416v64H64v-64h32M576 0h-32c-17.67 0-32 14.33-32 32v448c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32zM416 128h-32c-17.67 0-32 14.33-32 32v320c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V160c0-17.67-14.33-32-32-32zM256 256h-32c-17.67 0-32 14.33-32 32v192c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V288c0-17.67-14.33-32-32-32zM96 384H64c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32z"></path></svg>초급</span>
-            </div>
-            <div>
-              <span><svg width="16" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="folder-tree" class="svg-inline--fa fa-folder-tree fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M288 224h224a32 32 0 0 0 32-32V64a32 32 0 0 0-32-32H400L368 0h-80a32 32 0 0 0-32 32v64H64V8a8 8 0 0 0-8-8H40a8 8 0 0 0-8 8v392a16 16 0 0 0 16 16h208v64a32 32 0 0 0 32 32h224a32 32 0 0 0 32-32V352a32 32 0 0 0-32-32H400l-32-32h-80a32 32 0 0 0-32 32v64H64V128h192v64a32 32 0 0 0 32 32zm0 96h66.74l32 32H512v128H288zm0-288h66.74l32 32H512v128H288z"></path></svg> 인공지능, 데이터 사이언스</span>
-            </div>
-            <div class="course_skills">
-              <span><svg width="16" aria-hidden="true" focusable="false" data-prefix="far" data-icon="cubes" class="svg-inline--fa fa-cubes fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M384 215.1V102.5c0-15-9.3-28.4-23.4-33.7l-92-34.5c-8.1-3.1-17.1-3.1-25.3 0l-92 34.5c-14.1 5.3-23.4 18.7-23.4 33.7v112.6L23.4 254.4C9.3 259.6 0 273.1 0 288.1v106.6c0 13.6 7.7 26.1 19.9 32.2l98.6 49.3c10.1 5.1 22.1 5.1 32.2 0L256 423.6l105.3 52.6c10.1 5.1 22.1 5.1 32.2 0l98.6-49.3c12.2-6.1 19.9-18.6 19.9-32.2V288.1c0-15-9.3-28.4-23.4-33.7L384 215.1zm-116 34.8V152l92-31.7v97.6l-92 32zM152 94.2l104-39 104 39v.2L256 131 152 94.3v-.1zm0 26.1l92 31.7v97.9l-92-32v-97.6zm-30 329.4l-96.8-48.4V308l96.8 39.3v102.4zM25.2 280.8v-.2l109.4-41 108.1 40.5v1.2l-108.1 43.9-109.4-44.4zm122 66.5l95.5-38.8V402l-95.5 47.8V347.3zm217.6 102.4L269.3 402v-93.4l95.5 38.8v102.3zm122-48.4L390 449.7V347.3l96.8-39.3v93.3zm0-120.5l-109.4 44.4-108.1-43.9v-1.2l108.1-40.5 109.4 41v.2z"></path></svg> 딥러닝, CNN, Tensorflow</span>
-            </div>
-          </div>
-        </a>
-        <div class="course_card_control active_btn">
-          
-    <div class="tooltip is-tooltip-warning is-tooltip-left add_cart e_cart_action" fxd-data="{&quot;type&quot;:&quot;cart&quot;}" data-tooltip="바구니에 추가하기">
-      <i class="far fa-cart-plus fa-lg"></i></div>
-    <div class="tooltip is-tooltip-warning is-tooltip-left add_cart e_cart_action" fxd-data="{&quot;type&quot;:&quot;wish&quot;}" data-tooltip="위시리스트에 추가하기">
-      <i class="far fa-heart fa-lg"></i></div><div class="tooltip is-tooltip-warning is-tooltip-left e-add-mylist" data-tooltip="내 폴더에 추가"><i class="far fa-plus fa-lg"></i></div>
-        </div>
-      </div>
-    </div></div>
+<div class="courses_container">
+                      
+  <a href="/course/개발자-취업-취업편/lecture/66438" class="course_item">
+    <div class="course_title">비전공자를 위한 개발자 취업 올인원 가이드 [취업편]</div>
+    <time class="finished_time" datetime="Wed Nov 10 2021 16:57:37 GMT+0900 (GMT+09:00)">방금</time>
+  </a>
+  <a href="/course/따라하며-배우는-노드-리액트-기본/lecture/37108" class="course_item">
+    <div class="course_title">따라하며 배우는 노드, 리액트 시리즈 - 기본 강의</div>
+    <time class="finished_time" datetime="Wed Nov 10 2021 11:00:30 GMT+0900 (GMT+09:00)">5시간 전</time>
+  </a>
+  <a href="/course/파이썬-알고리즘-문제풀이-코딩테스트/lecture/26913" class="course_item">
+    <div class="course_title">파이썬 알고리즘 문제풀이 (코딩테스트 대비)</div>
+    <time class="finished_time" datetime="Mon Nov 01 2021 20:42:40 GMT+0900 (GMT+09:00)">8일 전</time>
+  </a>
+  <a href="/course/비전공자를-위한-개발자-취업/lecture/39685" class="course_item">
+    <div class="course_title">비전공자를 위한 개발자 취업 실전 가이드</div>
+    <time class="finished_time" datetime="Tue May 04 2021 00:50:48 GMT+0900 (GMT+09:00)">6달 전</time>
+  </a>
+  <a href="/course/기본적인-머신러닝-딥러닝-강좌/lecture/3374" class="course_item">
+    <div class="course_title">모두를 위한 딥러닝 - 기본적인 머신러닝과 딥러닝 강좌</div>
+    <time class="finished_time" datetime="Fri Mar 26 2021 20:50:29 GMT+0900 (GMT+09:00)">7달 전</time>
+  </a>
+                    </div>

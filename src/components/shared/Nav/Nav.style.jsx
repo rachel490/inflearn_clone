@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { StLink } from '../style/style';
+import styled from "styled-components";
+import { StLink } from "../style/style";
 
 export const NavWrap = styled.div`
   display: flex;
@@ -8,7 +8,15 @@ export const NavWrap = styled.div`
 `;
 
 export const NavItemWrap = styled(StLink)`
-  padding: 5px 10px;
+  padding: 0.5rem 0.875rem;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 `;
 
-export const LinkText = styled.span``;
+export const LinkText = styled.span`
+  padding: 0.5rem;
+  line-height: 1.5;
+  color: #4a4a4a;
+`;
