@@ -1,20 +1,23 @@
 import React, { useState, useEffect} from "react";
 import styled from "styled-components";
 import { Button } from "../style/style";
-import axios from "axios";
+import Axios from "axios";
+import { useHistory } from "react-router";
 import SocialLogin from "../SocialLogin";
+import {API} from '../../../config';
 
 const SignUp = () => {
-  const [Email, setEmail] = useState("");
-  const [EmailConfirm, setEmailConfirm] = useState("");
-  const [Password, setPassword] = useState("");
-  const [PasswordConfirm, setPasswordConfirm] = useState("");
+  const history = useHistory();
+  
+  const [Email, setEmail] = useState();
+  const [EmailConfirm, setEmailConfirm] = useState();
+  const [Password, setPassword] = useState();
+  const [PasswordConfirm, setPasswordConfirm] = useState();
 
   const emailreg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   const passwordreg = /^[a-zA-Z0-9]{4,12}$/;
 
   const check = (re, target) =>{
-    console.log(re.test(target));
     if (re.test(target)) {
       return true;
     }
@@ -26,29 +29,56 @@ const SignUp = () => {
   };
 
   const handleEmailConfirm = (e) => {
-    setEmailConfirm(e.target.value);
-   
+    setEmailConfirm(e.target.value); 
   };
 
   const handlePassword = (e) => {
-    setPassword(e.target.value);
-   
+    setPassword(e.target.value); 
   };
 
   const handlePasswordConfirm = (e) => {
     setPasswordConfirm(e.target.value);
-    
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!check(emailreg,Email) || !check(passwordreg,Password) || (Email !== EmailConfirm) || (Password !== PasswordConfirm)) {
+      return;
+    }
 
-    console.log(Email, EmailConfirm, Password, PasswordConfirm);
+    Axios.post(API.SIGN_UP, {
+      'email' : Email,
+      'password' : Password
+    }).then(response => {
+      const status_code = response.data.code;
+      switch (status_code) {
+        case 1000:
+          alert('회원가입에 성공하였습니다.');
+          history.push('/');
+          break;
+        case 2000:
+          alert('이메일을 입력해주세요.');
+          break;
+        case 2001:
+          alert('비밀번호를 입력해주세요.');
+          break;
+        case 2004:
+          alert('잘못된 아이디 형식입니다.');
+          break;
+        case 2005:
+          alert('이미 가입된 이메일입니다.');
+          break;
+        case 3000:
+          alert('회원가입에 실패하였습니다.')
+      }
+    })
+    .catch(error => alert(`회원가입 실패: ${error}`))
   };
 
 
-  useEffect(() => {
-    if (!check(emailreg,Email)) {
+
+  useEffect(()=> {
+    if (Email && !check(emailreg,Email)) {
       document.querySelector('.emailMessage').innerText = '이메일 형식이 올바르지 않습니다.';
     }  else {
       document.querySelector('.emailMessage').innerText = '';
@@ -60,8 +90,8 @@ const SignUp = () => {
       document.querySelector('.emailConfirmMessage').innerText = '';
     }
 
-    if (Password != PasswordConfirm) {
-      document.querySelector('.passwordMessage').innerText = '비밀번호가 일치하지 않습니다.';
+    if (!check(passwordreg,Password)) {
+      document.querySelector('.passwordMessage').innerText = '비밀번호 형식이 올바르지 않습니다.';
     }  else {
       document.querySelector('.passwordMessage').innerText = '';
     }
@@ -71,8 +101,7 @@ const SignUp = () => {
     }  else {
       document.querySelector('.passwordConfirmMessage').innerText = '';
     }
-
-  }, [Email, EmailConfirm, Password, PasswordConfirm]);
+  }, [Email, EmailConfirm, Password, PasswordConfirm])
 
 
   return (

@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import LectureCard from "../shared/LectureCard/LectureCard";
 import Axios from "axios";
-
+import { API } from "../../config";
 import {
   MdViewModule,
   MdFormatListBulleted,
   MdMoreHoriz,
 } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
-import axios from "axios";
 
 const SearchBar = () => {
   return (
@@ -444,15 +443,28 @@ const Pagelecture = styled.li`
 `;
 
 const LectureListContainer = () => {
+  const fieldTranslate = {
+    "it-programming": "개발•프로그래밍",
+    "front-end": "프론트엔드",
+    career: "커리어",
+    business: "직무•마케팅",
+    "finance-management": "금융•경영",
+  };
+
   const [lectures, setLectures] = useState();
-  const field = window.location.href.split('courses')[1];
+  const fields = window.location.href.split("courses/")[1];
+  const fieldArray = fields ? fields.split("/") : "";
+  const bigCategoryName =
+    fieldArray.length > 0 ? `/${fieldTranslate[fieldArray[0]]}` : "";
+  const middleCategoryName =
+    fieldArray.length > 1 ? `/${fieldTranslate[fieldArray[1]]}` : "";
 
   useEffect(() => {
     const fetchLectures = async () => {
-      const res = await Axios.get(
-        `https://dev.jkrising.shop/inflearn/courses/lectures${field}`
+      const response = await Axios.get(
+        API.LECTURE_LIST + bigCategoryName + middleCategoryName
       );
-      const data = res.data.result;
+      const data = response.data.result;
       setLectures(data);
     };
 
@@ -465,12 +477,16 @@ const LectureListContainer = () => {
       <SortBar />
       <TagBar />
       <MainContainer>
-        {lectures!==undefined && lectures.map((lecture) => {
-            console.log('hi',lecture)
-            return <LectureCard data={lecture} />
-        })}
+        {lectures ? (
+          lectures.map((lecture) => {
+            console.log("hi", lecture);
+            return <LectureCard data={lecture} />;
+          })
+        ) : (
+          <NoReultFound />
+        )}
       </MainContainer>
-      <Pagination />
+      {lectures ? <Pagination /> : null}
     </Container>
   );
 };
@@ -487,4 +503,42 @@ const MainContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+`;
+
+const NoReultFound = () => {
+  return (
+    <NoResultWrap>
+    <NoResultContainer>
+      <h3>🙈 검색 결과가 없어요! 🙊</h3>
+      <p>필터를 다시 적용해보시거나 카테고리를 이동해보세요</p>
+    </NoResultContainer>
+    </NoResultWrap>
+  );
+};
+
+const NoResultWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-tiems: center;
+  width: 100%;
+  height: 100%;
+`
+const NoResultContainer = styled.div`
+  height: 350px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #787878;
+  }
+
+  p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #5f5f5f;
+  }
 `;

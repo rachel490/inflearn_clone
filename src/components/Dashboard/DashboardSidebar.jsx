@@ -53,7 +53,7 @@ const DashboardSidebar = () => {
         <Category>설정</Category>
         <List>
           <Item>
-            <a href='/settings/accoount'>프로필</a>
+            <a href='/settings/account'>프로필</a>
           </Item>
           <Item>
             <a href='/settings/notification'>알림 설정</a>

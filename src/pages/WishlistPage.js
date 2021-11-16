@@ -2,40 +2,37 @@ import React from "react";
 import styled from "styled-components";
 import DashboardHeader from "../components/Dashboard/DashboardHeader";
 import DashboardSidebar from "../components/Dashboard/DashboardSidebar";
-import MainDashboard from "../components/Dashboard/MainDashboard";
 import Footer from "../components/shared/Footer/Footer";
-import Header from "../components/shared/Header/Header";
+import LoginedHeader from "../components/shared/Header/LoginedHeader";
+import WishlistContent from "../components/WishlistContent";
 
-const DashboardPage = () => {
+const WishlistPage = () => {
   return (
     <div>
-      <Header />
-      <DashboardHeader />
+      <LoginedHeader/>
       <Wrap>
-        <MainContainer>
-          <DashboardSidebar />
-          <MainDashboard />
-        </MainContainer>
+        <DashboardHeader title="위시리스트" />
       </Wrap>
+      <Container>
+        <DashboardSidebar />
+        <WishlistContent />
+      </Container>
       <Footer />
     </div>
   );
 };
 
-export default DashboardPage;
+export default WishlistPage;
 
 const Wrap = styled.div`
-  background-color:#f7f7f7;
+  padding-top: 65px;
+`;
 
-
-`
-
-const MainContainer = styled.div`
+const Container = styled.div`
   max-width: 1180px;
   flex-grow: 1;
   margin: 0 auto;
   position: relative;
   width: auto;
   display: flex;
-  padding-top: 65px;
 `;

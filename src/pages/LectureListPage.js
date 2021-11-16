@@ -5,12 +5,14 @@ import LectureListSidebar from '../components/LectureList/LectureListSidebar'
 import Footer from '../components/shared/Footer/Footer'
 import Header from '../components/shared/Header/Header'
 import ApplyFooter from '../components/shared/ApplyFooter/ApplyFooter'
+import LoginedHeader from '../components/shared/Header/LoginedHeader'
 
 
 const LectureListPage = () => {
+    const isLoggedIn = localStorage.getItem('jwtToken') ? true : false;
     return (
         <div>
-            <Header />
+             { isLoggedIn ? <LoginedHeader /> :  <Header /> }
             <MainContainer>
                 <LectureListSidebar />
                 <LectureListContainer />

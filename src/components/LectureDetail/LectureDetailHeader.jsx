@@ -1,25 +1,37 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { BsPlayCircle, BsStarFill } from 'react-icons/bs';
 import { MdNavigateNext } from 'react-icons/md';
 import { BiUser } from 'react-icons/bi';
 import { FaCrown, FaHashtag } from 'react-icons/fa';
+import StarRate from '../shared/StarRate/StarRate';
+import { API } from '../../config';
 
 const LectureDetailHeader = () => {
-  // useEffect(()=> {
-  //   axios.get('https://dev.jkrising.shop/inflearn/lectures/1/header')
-  //   .then((response) => {console.log(response)})
-  //   .catch(err => console.log(err))
-  // },[])
+  const id = window.location.href.split('course/')[1];
 
+  const [Header,setHeader] = useState();
+
+  useEffect(() => {
+    const fetchHeader = async () => {
+      const response = await axios.get(API.LECTURE_DETAIL_HEADER(id));
+      const data = response.data.result;
+      setHeader(data);
+    }
+
+      fetchHeader();
+  }, []);
+  
+  
   return (
+    Header ? (
     <ContainerWrap>
       <Container>
         <LeftContainer>
           <ImgWrap>
             <Img
-              src='https://cdn.inflearn.com/public/courses/326354/cover/1d6f78c0-86a5-4585-b7f5-49d57582e964'
+              src={Header.TITLE_IMAGE}
               alt='lecture-thumbnail'
             />
           </ImgWrap>
@@ -29,46 +41,41 @@ const LectureDetailHeader = () => {
                 <BsPlayCircle />
               </icon>
               <p>
-                <span>12개</span> 무료보기
+                <span>{Header.previewCount}개</span> 무료보기
               </p>
             </PreviewButton>
           </PreviewButtonWrap>
         </LeftContainer>
         <RightContainer>
           <span className='field'>
-            커리어 <MdNavigateNext /> 취업 · 이직
+            {Header.category.BIG_CATEGORY_NAME} <MdNavigateNext /> {Header.category.MIDDLE_CATEGORY_NAME}
           </span>
           <h1 className='title'>
-            비전공자를 위한 개발자 취업 올인원 가이드 [통합편]
+            {Header.LECTURE_NAME}
           </h1>
           <div className='info'>
             <span className='info_rate'>
-              <BsStarFill color='#FFC807' />
-              <BsStarFill color='#FFC807' />
-              <BsStarFill color='#FFC807' />
-              <BsStarFill color='#FFC807' />
-              <BsStarFill color='#FFC807' />
-              <strong>(4.9)</strong>
+              <StarRate rate={Header.STAR_POINT} />
+              <strong>({Header.STAR_POINT})</strong>
             </span>
             <span>68개의 수강평&nbsp;∙&nbsp;</span>
             <span>
-              <strong>1118명</strong>의 수강생
+              <strong>{Header.studentCount}명</strong>의 수강생
             </span>
           </div>
           <div className='instructor'>
             <BiUser className='user_icon' />
-            한정수
+            {Header.NICK_NAME}
             <FaCrown className='crown_icon' />
           </div>
           <div className='tag'>
             <FaHashtag className='hash_icon' />
-            <button>취업</button>
-            <button>면접</button>
-            <button>포트폴리오</button>
+            {Header.tags.map(tag => <button>{tag.CATEGORY_TAG_NAME}</button>)}
           </div>
         </RightContainer>
-      </Container>
+      </Container>  
     </ContainerWrap>
+    ): 'loading'
   );
 };
 
@@ -172,9 +179,17 @@ const RightContainer = styled.div`
 
   .info {
     margin-bottom: 8px;
+    display: flex;
+    align-items: center;
 
     .info_rate {
       margin-right: 8px;
+      display: flex;
+      align-items: center;
+       
+      strong {
+        margin-left: 8px;
+      }
     }
   }
 

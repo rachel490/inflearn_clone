@@ -237,6 +237,8 @@ const Title = styled.div`
   justify-content: space-between;
   line-height: 1.25;
   position: relative;
+  cursor: pointer;
+  
 `;
 const Header = styled(Title)`
   &::after {

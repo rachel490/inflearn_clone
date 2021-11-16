@@ -2,14 +2,20 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import Logo from '../Logo/Logo';
+import { useHistory } from "react-router";
 import { ModalWrap, ModalOverlay, Modal, Button } from '../style/style';
-import { AiOutlineClose } from 'react-icons/ai';
+import { AiFillRest, AiOutlineClose } from 'react-icons/ai';
 import SocialLogin from '../SocialLogin';
+import {API, JWT_EXPIRE_TIME} from '../../../config';
 
 function SignInModal({ toggleSignInModal }) {
-
+  const history = useHistory();
   const [Email, setEmail] = useState();
   const [Password, setPassword] = useState();
+
+  const handleClick = () => {
+    toggleSignInModal();
+  }
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -19,36 +25,70 @@ function SignInModal({ toggleSignInModal }) {
     setPassword(e.target.value);
   }
   
-
+  //로그인 로직 : 성공시 - onLoginSuccess, 실패시 - 에러 출력
   const onLogin = (e) => {
+    toggleSignInModal();
+
     e.preventDefault();
-    console.log('id&pw', Email, Password)
     const data = {
       userId: Email,
       password: Password,
     };
 
-    axios.post('https://dev.jkrising.shop/inflearn/users/login', data).then(response => {
-    console.log(response.data)  
-    const { jwt } = response.data.result;
+    axios.post(API.LOGIN, data)
+    .then(response => {
+      if(response.data.isSuccess) {
+        onLoginSuccess(response);
+      } else {
+        alert(response.data.message);
+      }
+    })
+    .catch(err => console.log(err))
+  }
 
-  
-      // API 요청하는 콜마다 헤더에 accessToken 담아 보내도록 설정
-      axios.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
-  
-      // accessToken을 localStorage, cookie 등에 저장하지 않는다!
-  
-    }).catch(error => {
-      // ... 에러 처리
-      console.log(error)
-    });
+  const onSilentRefresh = () => {
+    let refreshToken = '';
+
+    if (localStorage.getItem("refreshToken") === null) {
+      alert('저장된 리프레시 토큰이 없습니다.');
+    } else {
+      refreshToken = localStorage.getItem("refreshToken");
+    }
+
+    axios.post(API.REFRESH_LOGIN, refreshToken)
+    .then(response => {
+      if (response.data.isSuccess) {
+        onLoginSuccess(response);
+      } else {
+        alert(response.data.message);
+      }
+    })
+    .catch(err => console.log(err))
+  }
+      
+
+  const onLoginSuccess = (response) => {
+    alert('login Successfully')
+    const { jwt, refreshToken } = response.data.result;
+
+    // API 요청하는 콜마다 헤더에 accessToken 담아 보내도록 설정
+    //  axios.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
+     localStorage.setItem('refreshToken', refreshToken);
+     localStorage.setItem('jwtToken', jwt);
+     history.push('/');
+
+    //console.log(jwt, refreshToken, localStorage.getItem('refreshToken'),localStorage.getItem('jwtToken'));
+     
+
+     // accessToken 만료하기 1분 전에 로그인 연장
+    setTimeout(onSilentRefresh, JWT_EXPIRE_TIME - 60000);
   }
 
   return (
-    <ModalWrap>
-      <ModalOverlay id='hi'>
+    <ModalWrap >
+      <ModalOverlay id='hi' >
         <ModalContent>
-          <AiOutlineClose />
+          <AiOutlineClose onClick={handleClick} className="icon"/>
           <LogoWrap>
             <Logo />
           </LogoWrap>
@@ -78,6 +118,10 @@ const ModalContent = styled(Modal)`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+
+  .icon {
+    cursor: pointer;
+  }
 `;
 
 const LogoWrap = styled.div`

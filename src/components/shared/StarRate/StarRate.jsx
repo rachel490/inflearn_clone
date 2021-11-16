@@ -1,24 +1,23 @@
 import React from 'react'
-import {FaRegStar} from 'react-icons/fa'
+import {BsStar, BsStarFill} from 'react-icons/bs'
 import styled from 'styled-components'
 
 const StarRate = ({rate}) => {
-    console.log('rate', rate);
     return (
         <Container >
             <BaseStar className="stars-background">
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
+                <span><BsStar /></span>
+                <span><BsStar /></span>
+                <span><BsStar /></span>
+                <span><BsStar /></span>
+                <span><BsStar /></span>
             </BaseStar>
             <FillStar className="stars-real" rate= {rate}>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
+                <span><BsStarFill /></span>
+                <span><BsStarFill /></span>
+                <span><BsStarFill /></span>
+                <span><BsStarFill /></span>
+                <span><BsStarFill /></span>
             </FillStar>
         </Container>
     )
@@ -27,7 +26,6 @@ const StarRate = ({rate}) => {
 export default StarRate
 
 const Container = styled.div`
-    color: #aaa9a9; 
     position: relative;
     unicode-bidi: bidi-override;
     width: max-content;
@@ -40,11 +38,11 @@ const Container = styled.div`
 const BaseStar = styled.div`
     z-index: 0;
     padding: 0;
+    color: #aaa9a9; 
 
 `
 
 const FillStar = styled.div`
-    color: #fff58c;
     padding: 0;
     position: absolute;
     z-index: 1;
@@ -53,4 +51,8 @@ const FillStar = styled.div`
     overflow: hidden;
     -webkit-text-fill-color: gold;
     width: ${props => props.rate/5*80}px;
+
+    span {
+        color: #FFC807;
+    }
 `
