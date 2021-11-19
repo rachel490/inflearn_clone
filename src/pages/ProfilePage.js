@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import DashboardHeader from '../components/Dashboard/DashboardHeader';
 import DashboardSidebar from '../components/Dashboard/DashboardSidebar';
 import Footer from '../components/shared/Footer/Footer';
-import Header from '../components/shared/Header/Header';
 import ProfileContent from '../components/Profile/ProfileContent';
 import LoginedHeader from '../components/shared/Header/LoginedHeader';
 

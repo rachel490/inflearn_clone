@@ -38,7 +38,7 @@ const LectureCard = (props) => {
 export default LectureCard;
 
 const Wrap = styled.div`
-  width: ${props => props.size == 'big' ?  '33.3333333333%' : '231px'};
+  width: ${props => props.size == 'big' ?  '33.3333333333%' : '240px'};
  flex: none;
  padding: 0.75rem;
 box-sizing: border-box;

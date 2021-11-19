@@ -1,171 +1,78 @@
-# Inflearn (인프런) Clone Coding
+# Inflearn Clone
 
-### 개발일지
+---
 
-#### [10.30]
+![Screen Shot 2021-11-19 at 5.54.10 PM.png](Untitled%2053d3f0f7fd254d4ab3f4bf6ee9b3165e/Screen_Shot_2021-11-19_at_5.54.10_PM.png)
 
-- Logo svg 파일 색깔 변경
-  - svg 사용하는 방법
-    - 정적 : img 태그의 src로 사용
-    - 동적 : svg 태그 자체를 사용
-  - 색깔변경 : 동적이므로 svg 태그 자체를 사용 → svg안의 path의 fill 속성을 이용해서 바꿈
-    - logo.svg : svg태그와 하위에 path태그들을 그대로 복붙
-                            → svg태그에 id값 지정 (#icon_brand_logo)
-    ```jsx
-    import { ReactComponent as Logo } from "../../../logo.svg";
+## **1. 제작 기간 & 참여 인원**
 
-    <LogoWrapper to="/">
-      <Logo /> //svg자체
-    </LogoWrapper>;
+---
 
-    export const LogoWrapper = styled(Link)`
-      #icon_brand_logo {
-        fill: #1dc078;
-      }
-    `;
-    ```
+- 2021년 10월 30일 ~ 11월 12일
+- 팀 프로젝트
+- Front-end: Dwell
+- Back-end: Rio, Nadan
 
-#### [10.31]
+## **2. 사용 기술**
 
-- Global Style 적용 + reset.css :
+---
 
-  - GlobalStyle : styled-component의 createGlobalStyle 이용해서 생성
-  - Reset : styled-reset 다운 받아서 사용
+`front-end`
 
-  ```jsx
-  import { reset } from "styled-reset";
-  import { createGlobalStyle } from "styled-components";
+- Javascript
+- React
+- Router
+- Styled-Component
 
-  const GlobalStyle = createGlobalStyle`
-      ${reset};
-      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
-  
-      body {
-          font-family: 'Noto Sans KR', sans-serif;
-      }
-  `;
+`etc`
 
-  export default GlobalStyle;
-  ```
+- jwt Token
+- Oauth2
 
-  ++ 반드시 Reset이 아닌 reset으로 써야함. 아니면 다음과 같은 에러메세지를 마주하게됨.
+## 3**. 프론트엔드 핵심 목표**
 
-  ![스크린샷 2021-10-31 오후 11.21.46.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d90a2271-837c-4db7-aa2b-2cf624ea21c1/스크린샷_2021-10-31_오후_11.21.46.png)
+---
 
-- Link의 Styled Component version
-  ⇒ Link도 a 태그와 같이 디폴트 스타일이 존재. reset.css나 GlobalStyle로 설정할 수 없으므로 styled component를 별도로 만듦 : StLink
-  ```jsx
-  import styled from "styled-components";
-  import { Link } from "react-router-dom";
+- 프론트엔드와 백엔드 개발자들이 협업하여 프로젝트 진행
+- API 통신을 통해서 데이터를 랜더
+- styled-components로 스타일링하여 컴포넌트의 재사용성 증가
 
-  export const StLink = styled(Link)`
-    color: currentColor;
-    text-decoration: none;
-    cursor: pointer;
+## 4. 페이지별 기능
 
-    &:focus,
-    &:hover,
-    &:visited,
-    &:link,
-    &:active {
-      text-decoration: none;
-    }
-  `;
-  ```
+---
 
-### [11.1]
+### 회원가입 / 로그인
 
-- React에서 Anchor 태그 사용할때 : target = '\_blank' 설정시 오류
+- 회원가입 폼 유효성 검사
+- local storage에 jwt,refresh token 저장
 
-  - 에러메세지
-    ![스크린샷 2021-11-01 오후 11.31.35.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/03963d8e-7b77-4a0c-bc82-35f031c683b0/스크린샷_2021-11-01_오후_11.31.35.png)
-  - 해결방법
-    ⇒ `rel='noopener noreferrer'` 사용
-    ```jsx
-    <a
-      href='https://post.naver.com/inflearn'
-      target='_blank'
-      rel='noopener noreferrer'
-    >
-    ```
+### 메인페이지
 
-- TID
-  - 서버 개발자분들과 1주차에 필요한 API의 API 명세서 정리
+- 로그인 여부에 따라 다른 화면 렌더
 
-### [11.2]
+### 강의목록
 
-- TID
-  - kakao social login 구현
-  - google social login 구현
-  - sign in modal UI 구현
-  - 서버 개발자분들과 전체 API 명세서 정리 (-ing)
+- 선택한 카테고리에 맞는 데이터를 fetch하여 강의 리스트 렌더
 
-### [11.3]
+### 강의상세
 
-- TID
+- 강의와 관련된 수강평을 조회 API를 써서 fetch
+- 강의 커리큘럼을 조회 API를 써서 fetch
 
-  - 1차 피드백
-  - Sign Up UI 구현
-  - Sign Up : Test API 이용해서 테스팅 -> 성공
-  - Redux 공부
+### 대시보드
 
-- 1차 피드백
-  - 생산성이 떨어진다.
-    => 1차 데드라인이 금요일인줄 알았는데 1차 피드백전이였음.
-    => API 기다리지말고 더미 데이터 이용해서 미리 페이지 만들기
-    => 다음 피드백전까지 메인.강의목록.강의상세.로그인.회원가입.대시보드.강의재생 페이지 완성하기
-  - 중복되는 것은 후에 미뤄도 된다.
-    - 소셜로그인에 오류가 생긴 와중에 해결하려고 끌지말고 일반로그인이 구현되었다면 넘어가라
-  - 퍼블리싱 부족
-    - 반응형 + 레이아웃에 신경쓸것
+- 프로필의 유저 닉네임과 자기소개, 휴대폰번호, 이메일 변경가능
+- 수강바구니에 넣은 강의목록을 확인가능
+- 위시리스트에 넣은 강의목록을 확인가능
 
-### [11.4]
+## **리팩토링 계획**
 
-- TID
-  - login 테스트 서버 확인
-  - 강의 상세 header 완성
-  - 강의 상세 소개 페이지 html 더미 데이터 생성 -> 서버에게 넘김
-  - 리덕스 사용해서 로그인 상태관리 -ing
+---
 
-### [11.5]
+**해당 프로젝트는 차후에 다음과 같이 개선할 예정입니다.**
 
-- TID
-  - 강의 목록 : card component 완성
-  - 노트북 화면 나감...
-
-### [11.6]
-
-- TID
-  -
-
-### [11.7]
-
-- TID
-  - 회원가입 UI 업데이트
-  - 카카오 소셜로그인 수정
-
-### [11.8]
-
-- TID
-  - 기획서 2주차 목표 추가 + 팀회의
-  - 상세 페이지 : 사이드바, 강사진 완성
-  - 상세 페이지 : 커리큘럼 완성
-  - 상세 페이지 : 리뷰 완성
-  - 상세 페이지 : 강의 추천 -ing
-
-
-### [11.9]
-
-- TID
-  - 목록 페이지 : 사이드바
-  - 목록 페이지 : 필터바
-  - 목록 페이지 : 검색바
-
-### [11.10]
-
-- TID
-  - 목록 페이지 : API 통신
-  - 대시보드 틀 잡음
-  - react-router-dom 에러 해결: 6버전 업데이트로 인해 오류
-  - 멘토링 카드 UI 완성
-
+- 동적 웹페이지 구현
+- 중복된 코드는 모듈화를 사용하여 중복 최소화
+- prettier, eslint를 사용하여 코드 컨벤션에 맞춰 전체적인 코드 리팩토링
+- 퍼포먼스 개선
+- 서버와 협업하여 API 연결 및 서비스 구동 상태 구축

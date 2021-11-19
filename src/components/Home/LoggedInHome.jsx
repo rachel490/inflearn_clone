@@ -5,6 +5,7 @@ import { BsSearch } from "react-icons/bs";
 import PreviewLectureCard from "../shared/LectureCard/PreviewLectureCard";
 import LectureCard from "../shared/LectureCard/LectureCard";
 import { API } from "../../config";
+import LectureHistory from "./LectureHistory";
 
 const dummy = {
   LECTURE_ID: 1,
@@ -95,11 +96,7 @@ const LoggedInHome = () => {
             <h1>나의 최근 학습 강의</h1>
           </SectionHeader>
           <SectionContent>
-            <LectureCard data={dummy} />
-            <LectureCard data={dummy} />
-            <LectureCard data={dummy} />
-            <LectureCard data={dummy} />
-            <LectureCard data={dummy} />
+            <LectureHistory />
           </SectionContent>
         </LectureContent>
       </LectureSection>

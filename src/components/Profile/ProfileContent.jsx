@@ -56,7 +56,7 @@ const ProfileContent = () => {
       method: "patch",
       url: API.PROFILE_INFO_UPDATE,
       headers: {
-        "x-access-token": JWT_TOKEN,
+        "x-access-token": localStorage.getItem('jwtToken'),
       },
       data: {
         nickName: Name,
@@ -78,7 +78,7 @@ const ProfileContent = () => {
       method: "patch",
       url: API.PROFILE_EMAIL_UPDATE,
       headers: {
-        "x-access-token": JWT_TOKEN,
+        "x-access-token": localStorage.getItem('jwtToken'),
       },
       data: {
         email: Email,
@@ -98,7 +98,7 @@ const ProfileContent = () => {
       method: "patch",
       url: API.PROFILE_PHONE_UPDATE,
       headers: {
-        "x-access-token": JWT_TOKEN,
+        "x-access-token": localStorage.getItem('jwtToken'),
       },
       data: {
         phoneNumber: Phone,

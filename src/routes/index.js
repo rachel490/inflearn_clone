@@ -9,6 +9,9 @@ import DashboardPage from "../pages/DashboardPage";
 import HomePage from "../pages/HomePage";
 import CartPage from "../pages/CartPage";
 import WishlistPage from "../pages/WishlistPage";
+import ChatPage from "../pages/ChatPage";
+import QuestionPage from "../pages/QuestionPage";
+import StudyPage from "../pages/StudyPage";
 
 function RootRoute() {
   return (
@@ -23,8 +26,9 @@ function RootRoute() {
         <Route path='/' exact component={HomePage} />
         <Route path='/carts' component={CartPage} />
         <Route path='/wishlist' component={WishlistPage} />
-
-
+        <Route path='/community/chats' component={ChatPage} />
+        <Route path='/community/questions' component={QuestionPage} />
+        <Route path='/community/studies' component={StudyPage} />
       </Switch>
     </Router>
   );

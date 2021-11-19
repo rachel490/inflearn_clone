@@ -4,12 +4,12 @@ import DashboardHeader from "../components/Dashboard/DashboardHeader";
 import DashboardSidebar from "../components/Dashboard/DashboardSidebar";
 import MainDashboard from "../components/Dashboard/MainDashboard";
 import Footer from "../components/shared/Footer/Footer";
-import Header from "../components/shared/Header/Header";
+import LoginedHeader from "../components/shared/Header/LoginedHeader";
 
 const DashboardPage = () => {
   return (
     <div>
-      <Header />
+      <LoginedHeader />
       <DashboardHeader />
       <Wrap>
         <MainContainer>
